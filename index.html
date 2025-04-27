@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Travel Blog - Explore the World</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#3b82f6', secondary: '#f59e0b' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+        }
+
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 flex items-center justify-between h-16">
+            <a href="#" class="font-['Pacifico'] text-2xl text-primary">WorldTravelBlog</a>
+
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Home</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Continents</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Countries</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Destinations</a>
+                <a href="#" class="text-gray-800 hover:text-primary font-medium">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <input type="text" placeholder="Search..."
+                        class="py-2 pl-9 pr-4 w-40 md:w-64 rounded-full text-sm border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                    <div
+                        class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 flex items-center justify-center text-gray-400">
+                        <i class="ri-search-line"></i>
+                    </div>
+                </div>
+
+                <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">Login</button>
+            </div>
+
+            <div class="md:hidden w-8 h-8 flex items-center justify-center text-gray-700">
+                <i class="ri-menu-line ri-lg"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 h-[600px] flex items-center"
+        style="background-image: url('https://readdy.ai/api/search-image?query=stunning%20panoramic%20view%20of%20famous%20travel%20destinations%20around%20the%20world%2C%20beautiful%20landmarks%2C%20natural%20wonders%2C%20iconic%20architecture%2C%20vibrant%20colors%2C%20professional%20travel%20photography%2C%20high%20resolution%2C%20dramatic%20lighting%2C%20inspiring%20wanderlust&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+        <div class="hero-overlay absolute inset-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="w-full md:w-1/2 text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Discover Amazing Destinations Around the World</h1>
+                <p class="text-lg mb-8">A journey to explore the beauty of countries and the most famous tourist
+                    destinations on the planet.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button
+                        class="bg-primary hover:bg-blue-600 text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium">Explore
+                        Now</button>
+                    <button
+                        class="bg-white hover:bg-gray-100 text-gray-800 px-6 py-3 !rounded-button whitespace-nowrap font-medium">View
+                        Destinations</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <div class="bg-white shadow-md py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center space-x-2 text-sm">
+                    <span class="font-medium text-gray-700">Filter by:</span>
+                    <div class="bg-gray-100 rounded-full px-1 py-1 flex">
+                        <button class="px-4 py-1 rounded-full bg-primary text-white whitespace-nowrap">All</button>
+                        <button
+                            class="px-4 py-1 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap">Asia</button>
+                        <button
+                            class="px-4 py-1 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap">Europe</button>
+                        <button
+                            class="px-4 py-1 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap">America</button>
+                        <button
+                            class="px-4 py-1 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap">Africa</button>
+                        <button
+                            class="px-4 py-1 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap">Oceania</button>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <button
+                            class="flex items-center space-x-2 bg-gray-100 px-4 py-2 rounded-full text-sm text-gray-700 whitespace-nowrap">
+                            <span>Sort by</span>
+                            <div class="w-4 h-4 flex items-center justify-center">
+                                <i class="ri-arrow-down-s-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Destinations -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Featured Destinations</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Discover the world's most amazing tourist destinations, from
+                    natural wonders to famous architectural landmarks.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Destination 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=beautiful%20view%20of%20Hoi%20An%20ancient%20town%20in%20Vietnam%20with%20yellow%20buildings%2C%20lanterns%2C%20and%20river%2C%20professional%20travel%20photography%2C%20stunning%20lighting%2C%20vibrant%20colors%2C%20no%20people%2C%20high%20resolution&width=600&height=400&seq=2&orientation=landscape"
+                            alt="Hoi An"
+                            class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-primary">Vietnam</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span class="ml-1 text-sm text-gray-600">4.5</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Hoi An Ancient Town</h3>
+                        <p class="text-gray-600 mb-4">Hoi An Ancient Town is a UNESCO World Heritage site with unique
+                            architecture, colorful lanterns, and peaceful atmosphere.</p>
+                        <button class="text-primary font-medium flex items-center">
+                            <span>View Details</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Destination 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=stunning%20view%20of%20Santorini%20Greece%20with%20white%20buildings%2C%20blue%20domes%2C%20and%20ocean%20view%2C%20professional%20travel%20photography%2C%20perfect%20lighting%2C%20vibrant%20colors%2C%20no%20people%2C%20high%20resolution&width=600&height=400&seq=3&orientation=landscape"
+                            alt="Santorini"
+                            class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-primary">Greece</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="ml-1 text-sm text-gray-600">4.9</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Santorini</h3>
+                        <p class="text-gray-600 mb-4">Santorini is famous for its white-washed buildings, blue domes,
+                            and stunning sunsets.</p>
+                        <button class="text-primary font-medium flex items-center">
+                            <span>View Details</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Destination 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=majestic%20view%20of%20Kyoto%20Japan%20with%20traditional%20temples%2C%20cherry%20blossoms%2C%20and%20gardens%2C%20professional%20travel%20photography%2C%20perfect%20lighting%2C%20vibrant%20colors%2C%20no%20people%2C%20high%20resolution&width=600&height=400&seq=4&orientation=landscape"
+                            alt="Kyoto"
+                            class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-primary">Japan</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span class="ml-1 text-sm text-gray-600">4.7</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Kyoto</h3>
+                        <p class="text-gray-600 mb-4">Kyoto is the capital city of Kyoto Prefecture in the Kansai Region
+                            of Honshu.</p>
+                        <button class="text-primary font-medium flex items-center">
+                            <span>View Details</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Destination 4 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=stunning%20view%20of%20Machu%20Picchu%20in%20Peru%20with%20ancient%20ruins%2C%20mountain%20backdrop%2C%20and%20misty%20atmosphere%2C%20professional%20travel%20photography%2C%20perfect%20lighting%2C%20vibrant%20colors%2C%20no%20people%2C%20high%20resolution&width=600&height=400&seq=5&orientation=landscape"
+                            alt="Machu Picchu"
+                            class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-primary">Peru</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="ml-1 text-sm text-gray-600">4.8</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Machu Picchu</h3>
+                        <p class="text-gray-600 mb-4">Machu Picchu is an ancient city located in the Eastern Cordillera
+                            of southern Peru on a 2,430-meter mountain ridge.</p>
+                        <button class="text-primary font-medium flex items-center">
+                            <span>View Details</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Destination 5 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=breathtaking%20view%20of%20the%20Northern%20Lights%20in%20Iceland%20with%20green%20aurora%20over%20mountains%20and%20lake%2C%20professional%20travel%20photography%2C%20perfect%20lighting%2C%20vibrant%20colors%2C%20no%20people%2C%20high%20resolution&width=600&height=400&seq=6&orientation=landscape"
+                            alt="Iceland"
+                            class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-primary">Iceland</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-half-fill"></i>
+                                </div>
+                                <span class="ml-1 text-sm text-gray-600">4.6</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Northern Lights</h3>
+                        <p class="text-gray-600 mb-4">Iceland is known for its stunning natural landscapes, including
+                            the Northern Lights.</p>
+                        <button class="text-primary font-medium flex items-center">
+                            <span>View Details</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Destination 6 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="h-64 overflow-hidden">
+                        <img src="https://readdy.ai/api/search-image?query=stunning%20view%20of%20the%20Great%20Barrier%20Reef%20in%20Australia%20with%20colorful%20coral%2C%20clear%20blue%20water%2C%20and%20tropical%20fish%2C%20professional%20travel%20photography%2C%20perfect%20lighting%2C%20vibrant%20colors%2C%20underwater%20scene%2C%20high%20resolution&width=600&height=400&seq=7&orientation=landscape"
+                            alt="Great Barrier Reef"
+                            class="w-full h-full object-cover object-top transition-transform hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-primary">Australia</span>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <div class="w-4 h-4 flex items-center justify-center text-yellow-400">
+                                    <i class="ri-star-fill"></i>
+                                </div>
+                                <span class="ml-1 text-sm text-gray-600">4.9</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Great Barrier Reef</h3>
+                        <p class="text-gray-600 mb-4">The Great Barrier Reef is the world's largest coral reef system
+                            composed of over 2,900 individual reefs and 900 islands.</p>
+                        <button class="text-primary font-medium flex items-center">
+                            <span>View Details</span>
+                            <div class="w-5 h-5 flex items-center justify-center ml-1">
+                                <i class="ri-arrow-right-line"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button
+                    class="bg-primary hover:bg-blue-600 text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium">View
+                    More Destinations</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center text-white">
+                <h2 class="text-3xl font-bold mb-4">Subscribe to Travel Updates</h2>
+                <p class="mb-8">Get the latest information about destinations, special offers, and useful travel tips
+                    via email.</p>
+                <div class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="Your email"
+                        class="flex-grow py-3 px-4 rounded-full text-gray-800 border-none focus:outline-none focus:ring-2 focus:ring-blue-700">
+                    <button
+                        class="bg-white text-primary hover:bg-gray-100 py-3 px-6 !rounded-button whitespace-nowrap font-medium">Subscribe
+                        Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="#" class="font-['Pacifico'] text-2xl text-white mb-4 inline-block">WorldTravelBlog</a>
+                    <p class="text-gray-400 mb-4">Leading travel blog with detailed information about famous
+                        destinations around the world.</p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-twitter-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-instagram-fill"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Continents</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Countries</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Destinations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Asia</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Europe</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">America</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Africa</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Oceania</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Travel Tips</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mt-1 mr-2">
+                                <i class="ri-map-pin-line"></i>
+                            </div>
+                            <span class="text-gray-400">123 Travel Street, District 1, Ho Chi Minh City, Vietnam</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                                <i class="ri-phone-line"></i>
+                            </div>
+                            <span class="text-gray-400">+84 123 456 789</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-5 h-5 flex items-center justify-center text-primary mr-2">
+                                <i class="ri-mail-line"></i>
+                            </div>
+                            <span class="text-gray-400">info@worldtravelblog.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-700 text-center text-gray-400 text-sm">
+                <p>© 2025 WorldTravelBlog by mytemplates.org. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
